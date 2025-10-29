@@ -1,5 +1,7 @@
 # California Housing Price Prediction: An End-to-End ML Project
 
+![Project Logo]([https://your-image-link.com/logo.png](https://github.com/user-attachments/assets/6ecf7691-3518-459e-8b2a-062a5a628a48))
+
 This project implements a comprehensive machine learning pipeline for predicting California housing prices, from data acquisition and model training to deployment as a robust FastAPI web service. It serves as an excellent example of an end-to-end MLOps workflow.
 
 ## Table of Contents
