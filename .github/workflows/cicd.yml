@@ -5,14 +5,6 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
-env:
-  REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository_owner }}/california-simple
-
-concurrency:
-  group: cicd-${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
@@ -31,22 +23,16 @@ jobs:
       - name: Log in to GHCR
         uses: docker/login-action@v3
         with:
-          registry: ${{ env.REGISTRY }}
+          registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and push image
-        id: build
         uses: docker/build-push-action@v6
         with:
-          context: .
+          context: California_Housing_End_to_End
           push: true
-          platforms: linux/amd64
-          tags: |
-            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
-            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          tags: ghcr.io/${{ github.repository }}/california-simple:latest
 
   deploy:
     needs: build-and-push
@@ -55,36 +41,15 @@ jobs:
     steps:
       - name: SSH deploy (pull & restart)
         uses: appleboy/ssh-action@v1.2.0
-        env:
-          REGISTRY: ${{ env.REGISTRY }}
-          IMAGE_NAME: ${{ env.IMAGE_NAME }}
-          # Prefer GHCR_PAT if image is private; falls back to GITHUB_TOKEN
-          PULL_TOKEN: ${{ secrets.GHCR_PAT != '' && secrets.GHCR_PAT || secrets.GITHUB_TOKEN }}
-          PORT: ${{ secrets.PORT }}
-          APP_NAME: ${{ secrets.APP_NAME }}
-          SHA_TAG: ${{ github.sha }}
         with:
           host: ${{ secrets.DEPLOY_HOST }}
           username: ${{ secrets.DEPLOY_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            set -euo pipefail
-            : "${PORT:=8000}"
-            : "${APP_NAME:=california-simple}"
-
-            echo "Logging into GHCR…"
-            echo "$PULL_TOKEN" | docker login $REGISTRY -u ${{ github.actor }} --password-stdin
-
-            echo "Pulling image tags…"
-            docker pull $REGISTRY/$IMAGE_NAME:${SHA_TAG} || true
-            docker pull $REGISTRY/$IMAGE_NAME:latest || true
-
-            echo "Restarting container…"
-            docker rm -f "$APP_NAME" 2>/dev/null || true
-            docker run -d --name "$APP_NAME" \
-              -p ${PORT}:8000 \
-              --restart unless-stopped \
-              $REGISTRY/$IMAGE_NAME:${SHA_TAG}
-
-            echo "Pruning old images (optional)…"
-            docker image prune -f
+            set -e
+            docker login ghcr.io -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }}
+            docker pull ghcr.io/${{ github.repository }}/california-simple:latest || true
+            docker rm -f ${{ secrets.APP_NAME }} || true
+            docker run -d --name ${{ secrets.APP_NAME }} \
+              -p ${{ secrets.PORT }}:8000 \
+              ghcr.io/${{ github.repository }}/california-simple:latest
