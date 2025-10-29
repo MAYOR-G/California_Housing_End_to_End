@@ -46,17 +46,20 @@ The primary objective of this project is to accurately predict the median house 
 
 ## Tech Stack
 
-This project is built using a modern and efficient tech stack:
+This project is built with a modern, pragmatic stack across data science, APIs, and DevOps.
 
-| Category            | Technology to Python for data science.
-| Python | Machine Learning | [![Python](https://img.shields.io/badge/Python-3776AB?style=for-badge&logo=python&logoColor=white)](https://www.python.org/) |
-| scikit-learn | Machine Learning Library | [![scikit-learn](https://img.io/badge/scikit--learn-F7931E?style=for-badge&logo=scikit-learn&logoColor=white)](https://scikit-learn.org/stable/) |
-| FastAPI | Web Framework | [![FastAPI](https://img.io/badge/FastAPI-009688?style=for-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/) |
-| Uvicorn | ASGI Server | [![Uvicorn](https://img.io/badge/Uvicorn-593585?style=for-badge&logo=uvicorn&logoColor=white)](https://www.uvicorn.org/) |
-| Jupyter Notebook | Interactive Computing | [![Jupyter](https://img.io/badge/Jupyter-F37626?style=for-badge&logo=jupyter&logoColor=white)](https://jupyter.org/) |
-| Docker | Containerization | [![Docker](https://img.io/badge/Docker-2496ED?style=for-badge&logo=docker&logoColor=white)](https://www.docker.com/) |
-| GitHub Actions | CI/CD | [![GitHub Actions](https://img.io/badge/GitHub%20Actions-2088FF?style=for-badge&logo=github-actions&logoColor=white)](https://docs.github.com/en/actions) |
-| uv | Dependency Management | [![uv](https://img.io/badge/uv-6C5CE7?style=for-badge&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJDNi40NzcgMiAyIDYuNDc3IDIgMTJDMiAxNy41MjMgNi40NzcgMjIgMTIgMjJDMTcuNTIzIDIyIDIyIDE3LjUyMyAyMiAxMkMyMiA2LjQ3NyAxNy41MjMgMiAxMiAyWk0xMiA0QzE2LjQxOCA0IDIwIDcuNTgyIDIwIDEyQzIwIDE2LjQxOCAxNi40MTggMjAgMTIgMjBDNy41ODIgMjAgNCAxNi40MTggNCAxMkM0IDcuNTgyIDcuNTgyIDQgMTIgNFpNMTIgN0M5LjIyNCA3IDcgOS4yMjQgNyAxMkM3IDE0Ljc3NiA5LjIyNCAxNyAxMiAxN0MxNC43NzYgMTcgMTcgMTQuNzc2IDE3IDEyQxcgOS4yMjQgMTQuNzc2IDcgMTIgN1pNMTIgOUMxMy42NTcgOSAxNSAxMC4zNDMgMTUgMTJDMTUgMTMuNjU3IDEzLjY1NyAxNSAxMiAxNUMxMC4zNDMgMTUgOSAxMy42NTcgOSAxMkM5IDEwLjM0MyAxMC4zNDMgOSAxMiA5WiIgZmlsbD0iY3VycmVudENvbG9yIi8+Cjwvc3ZnPgo=)](https://github.com/astral-sh/uv) |
+| Category             | Tool              | Badge |
+|----------------------|-------------------|-------|
+| Programming Language | Python            | [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/) |
+| ML Library           | scikit-learn      | [![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)](https://scikit-learn.org/stable/) |
+| Web Framework        | FastAPI           | [![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/) |
+| ASGI Server          | Uvicorn           | [![Uvicorn](https://img.shields.io/badge/Uvicorn-593585?style=for-the-badge&logo=uvicorn&logoColor=white)](https://www.uvicorn.org/) |
+| Notebooks            | Jupyter Notebook  | [![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white)](https://jupyter.org/) |
+| Containerization     | Docker            | [![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/) |
+| CI/CD                | GitHub Actions    | [![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)](https://docs.github.com/en/actions) |
+| Dependency Mgmt      | uv (Astral)       | [![uv](https://img.shields.io/badge/uv-6C5CE7?style=for-the-badge&logo=rainmeter&logoColor=white)](https://github.com/astral-sh/uv) |
+
+
 
 ## Project Structure
 
